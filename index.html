@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panorama de Inovação: Robótica SESI</title>
+    <title>Destaques SESI Goiás 2026</title>
     
     <!-- Tailwind & Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -66,12 +66,6 @@
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #D1D1D6; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #8E8E93; }
-
-        .bg-pattern-red {
-            background-color: #B91C1C;
-            background-image: radial-gradient(circle at 50% 50%, #991B1B 2px, transparent 2px);
-            background-size: 20px 20px;
-        }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8 xl:px-12">
@@ -79,14 +73,14 @@
     <header class="max-w-[1400px] mx-auto mb-8 mt-4">
         <div class="flex flex-col md:flex-row justify-between items-start gap-6">
             <div class="flex-1">
-                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 mb-3 font-['Inter']">Panorama de Inovação</h1>
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 mb-3 font-['Inter']">Destaques SESI Goiás 2026</h1>
                 <p class="text-gray-500 max-w-3xl text-sm md:text-base leading-relaxed font-medium">
                     Análise estratégica do ecossistema de robótica educacional do SESI. 
                     Explore a distribuição de prêmios, performance por temporada e o protagonismo das equipes nas arenas globais e nacionais.
                 </p>
             </div>
             <div class="flex flex-col items-start md:items-end gap-4 shrink-0">
-                <img src="https://i.postimg.cc/5y6TzvGM/marca-SESI-2024-completa-colorida.png" alt="Logo SESI 2024" class="h-12 md:h-14 object-contain">
+                <img src="https://i.postimg.cc/5y6TzvGM/marca-SESI-2024-completa-colorida.png" alt="Logo SESI 2024" class="h-10 md:h-12 object-contain">
                 <div class="bg-blue-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold flex items-center shadow-md hover:bg-blue-700 transition-colors cursor-default">
                     <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                     Dados Integrados CNI
@@ -97,12 +91,11 @@
 
     <main id="dashboard-content" class="max-w-[1400px] mx-auto">
         
-        <section class="filter-badge rounded-2xl p-4 mb-8 flex flex-wrap gap-3 items-center z-20 relative">
+        <section class="filter-badge rounded-2xl p-4 mb-8 flex flex-wrap gap-3 items-center z-20 relative shadow-sm border border-gray-200/60">
             <div class="flex items-center mr-2 text-[11px] font-bold text-gray-400 uppercase tracking-wider">Filtros:</div>
             <select id="filter-torneio" class="apple-select flex-1 min-w-[140px] text-sm"><option value="all">Torneio</option></select>
             <select id="filter-temporada" class="apple-select flex-1 min-w-[140px] text-sm"><option value="all">Temporada</option></select>
             <select id="filter-estado" class="apple-select flex-1 min-w-[140px] text-sm"><option value="all">Estado</option></select>
-            <select id="filter-posicao" class="apple-select flex-1 min-w-[140px] text-sm"><option value="all">Posição</option></select>
             <button onclick="resetFilters()" class="text-sm text-blue-600 hover:text-blue-800 font-bold px-3 py-2 transition-colors">Limpar</button>
         </section>
 
@@ -131,7 +124,6 @@
                 <p class="text-xs text-gray-500 mt-3 font-medium" id="kpi-temporada-sub">0 prêmios</p>
             </div>
             
-            <!-- Destaque DR GO -->
             <div class="apple-card p-6 flex flex-col justify-center relative overflow-hidden bg-gradient-to-br from-[#E8F8F5] to-[#D1F2EB] border-b-4 border-[#10B981]">
                 <div class="absolute top-0 right-0 p-3 opacity-[0.07]">
                     <svg class="w-24 h-24 text-green-700" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A120.15 120.15 0 0010 1C5.58 1 2 4.58 2 9c0 3.879 2.768 7.108 6.404 7.854l.024.004a.25.25 0 00.322-.241V14.16a2 2 0 01-1.637-2.073l.034-.509a2 2 0 011.603-1.859l1.636-.233a3 3 0 002.584-2.923l.027-.37a3 3 0 00-2.584-2.923l-1.636-.233a2 2 0 01-1.603-1.859l-.034-.509A2 2 0 018.768 3.51a.25.25 0 00.279-.24A119.86 119.86 0 0010 3c4.42 0 8 3.58 8 8a7.973 7.973 0 01-1.5 4.674.25.25 0 00.174.407A119.846 119.846 0 0019 15c0-4.42-3.58-8-8-8a7.962 7.962 0 01-4.226 1.205l-.478-.068a.5.5 0 00-.568.495l-.01.14a.5.5 0 00.426.494l.478.068A8.962 8.962 0 0012 8c4.97 0 9 4.03 9 9a.25.25 0 00.354.228A11.966 11.966 0 0022 9c0-6.627-5.373-12-12-12z" clip-rule="evenodd"></path></svg>
@@ -143,19 +135,34 @@
         </section>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-            
-            <!-- Ranking de Estados -->
+            <!-- Novo Card: Mapa do Brasil -->
+            <div class="apple-card p-6 flex flex-col">
+                <div class="mb-4">
+                    <h3 class="text-lg font-bold text-gray-900">Distribuição Geográfica</h3>
+                    <p class="text-sm text-gray-500 font-medium mt-1">Volume de premiações no mapa</p>
+                </div>
+                <div class="relative flex-1 w-full flex items-center justify-center min-h-[400px]">
+                    <div class="relative w-full max-w-[450px] mx-auto">
+                        <img src="https://i.postimg.cc/SRtHmY8F/Brasil.png" alt="Mapa do Brasil" class="w-full h-auto opacity-70 mix-blend-multiply">
+                        <div id="map-bubbles" class="absolute inset-0 w-full h-full"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card: Ranking Estados -->
             <div class="apple-card p-6 flex flex-col">
                 <div class="mb-4">
                     <h3 class="text-lg font-bold text-gray-900">Premiações por DR</h3>
-                    <p class="text-sm text-gray-500 font-medium mt-1">Contagem de DR por DR (Destaque Goiás)</p>
+                    <p class="text-sm text-gray-500 font-medium mt-1">Contagem de DR por DR</p>
                 </div>
+                <!-- Altura maior para acomodar todos os DRs sem agrupar -->
                 <div class="relative flex-1 w-full min-h-[600px]">
                     <canvas id="chartEstados"></canvas>
                 </div>
             </div>
+        </div>
 
-            <!-- Premiações por Torneio (Substitui Pizza) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
             <div class="apple-card p-6 flex flex-col">
                 <div class="mb-4">
                     <h3 class="text-lg font-bold text-gray-900">Premiações por Categoria</h3>
@@ -165,52 +172,14 @@
                     <canvas id="chartTorneios"></canvas>
                 </div>
             </div>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
             
-            <!-- Evolução por Temporada -->
             <div class="apple-card p-6 flex flex-col">
                 <div class="mb-6">
                     <h3 class="text-lg font-bold text-gray-900">Premiações por período</h3>
                     <p class="text-sm text-gray-500 font-medium mt-1">Contagem de DR por Ano Torneio</p>
                 </div>
-                <div class="relative flex-1 w-full min-h-[300px]">
+                <div class="relative flex-1 w-full min-h-[400px]">
                     <canvas id="chartTemporadas"></canvas>
-                </div>
-            </div>
-
-            <!-- Pódio Interativo e Posições -->
-            <div class="apple-card p-6 flex flex-col">
-                <div class="mb-6 text-center">
-                    <h3 class="text-lg font-bold text-gray-900">Premiações por Posição</h3>
-                    <p class="text-sm text-gray-500 font-medium mt-1">Consolidação Top 3 e demais posições</p>
-                </div>
-                <div class="flex flex-1 justify-center items-end space-x-3 md:space-x-6 pb-2 mt-4 relative">
-                    <!-- 2º Lugar -->
-                    <div class="flex flex-col items-center group cursor-pointer w-24">
-                        <span class="text-2xl font-bold text-gray-500 mb-2 transition-transform group-hover:-translate-y-2" id="podium-2-val">0</span>
-                        <div class="w-full bg-gradient-to-t from-[#B0BEC5] to-[#CFD8DC] h-28 rounded-t-xl shadow-[inset_0_2px_4px_rgba(255,255,255,0.8)] flex justify-center pt-3 border border-gray-300 transition-all group-hover:brightness-95 relative overflow-hidden">
-                            <span class="font-black text-white text-xl drop-shadow-md">2º</span>
-                        </div>
-                    </div>
-                    <!-- 1º Lugar -->
-                    <div class="flex flex-col items-center group cursor-pointer z-10 w-28">
-                        <span class="text-4xl font-black text-[#1E88E5] mb-2 transition-transform group-hover:-translate-y-2 drop-shadow-sm" id="podium-1-val">0</span>
-                        <div class="w-full bg-gradient-to-t from-[#1976D2] to-[#42A5F5] h-40 rounded-t-xl shadow-[0_-4px_15px_rgba(30,136,229,0.3),inset_0_2px_5px_rgba(255,255,255,0.4)] flex justify-center pt-3 border border-blue-400 transition-all group-hover:brightness-105 relative overflow-hidden">
-                            <span class="font-black text-white text-3xl drop-shadow-md">1º</span>
-                        </div>
-                    </div>
-                    <!-- 3º Lugar -->
-                    <div class="flex flex-col items-center group cursor-pointer w-24">
-                        <span class="text-xl font-bold text-[#E64A19] mb-2 transition-transform group-hover:-translate-y-2" id="podium-3-val">0</span>
-                        <div class="w-full bg-gradient-to-t from-[#D84315] to-[#FF7043] h-20 rounded-t-xl shadow-[inset_0_2px_4px_rgba(255,255,255,0.4)] flex justify-center pt-2 border border-orange-400 transition-all group-hover:brightness-95 relative overflow-hidden">
-                            <span class="font-black text-white text-xl drop-shadow-md">3º</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center mt-6">
-                    <span class="text-sm font-semibold text-gray-500 bg-gray-100 px-4 py-1.5 rounded-full" id="podium-4-val">Outros (4º+): 0</span>
                 </div>
             </div>
         </div>
@@ -223,24 +192,12 @@
                     <span class="w-2 h-8 bg-[#10B981] rounded-full mr-3 inline-block"></span>
                     Destaques SESI Goiás
                 </h2>
-                
-                <div class="flex flex-wrap items-center bg-white rounded-xl p-1.5 shadow-sm border border-gray-100">
-                     <div class="flex items-center space-x-1 px-3">
-                         <span class="text-xs font-semibold text-gray-400">Ano:</span>
-                         <select class="text-sm font-semibold bg-transparent text-gray-700 outline-none cursor-pointer"><option>Todos</option></select>
-                     </div>
-                     <div class="w-px h-5 bg-gray-200 hidden sm:block"></div>
-                     <div class="flex items-center space-x-1 px-3">
-                         <span class="text-xs font-semibold text-gray-400">Torneio:</span>
-                         <select class="text-sm font-semibold bg-transparent text-gray-700 outline-none cursor-pointer"><option>Todos</option></select>
-                     </div>
-                </div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Card 1: Geek Canaã -->
                 <div class="apple-card flex flex-col h-full group cursor-pointer border border-gray-100">
-                    <div class="h-44 relative overflow-hidden bg-gray-100">
+                    <div class="h-56 relative overflow-hidden bg-gray-100">
                         <img src="https://i.postimg.cc/rsPs9xyK/Australia.jpg" alt="Time Geek Canaã" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                         <div class="absolute top-3 left-3 bg-[#1D1D1F] text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm">FLL</div>
                         <div class="absolute top-3 right-3 bg-[#10B981] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">2026</div>
@@ -253,7 +210,7 @@
                         <h3 class="text-xl font-bold text-gray-900 mb-1 flex items-center">1º Lugar Geral <span class="ml-2 text-2xl">🏆</span></h3>
                         <h4 class="text-sm font-bold text-blue-600 mb-3">Champion's Award & Robot Performance</h4>
                         <p class="text-gray-500 text-[14px] mb-6 flex-grow leading-relaxed">
-                            Equipe apresentou inovador borrifador à base de cera de abelha para conservar peças arqueológicas, dominando o mundo.
+                            Equipe apresentou inovador borrifador à base de cera de abelha para conservar peças arqueológicas, dominando o mundo com duplo ouro.
                         </p>
                         <div class="bg-gray-50 rounded-2xl p-4 mt-auto border border-gray-100">
                             <p class="text-[10px] font-bold text-gray-400 tracking-wider mb-1 uppercase">Equipe & Unidade</p>
@@ -265,14 +222,13 @@
 
                 <!-- Card 2: Titans LJ Planalto -->
                 <div class="apple-card flex flex-col h-full group cursor-pointer border border-gray-100">
-                    <div class="h-44 relative overflow-hidden bg-gray-100">
+                    <div class="h-56 relative overflow-hidden bg-gray-100">
                         <img src="https://i.postimg.cc/bYxZ5CL6/Grecie.jpg" alt="Time Titans LJ Planalto" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                         <div class="absolute top-3 left-3 bg-[#1D1D1F] text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm">FLL</div>
                         <div class="absolute top-3 right-3 bg-[#10B981] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">2026</div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex items-center text-gray-500 text-[13px] mb-3 font-semibold">
-                            <!-- Ícone de globo -->
                             <svg class="w-4 h-4 mr-1.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             Corintos, Grécia
                         </div>
@@ -291,14 +247,13 @@
 
                 <!-- Card 3: Justice FTC Team -->
                 <div class="apple-card flex flex-col h-full group cursor-pointer border border-gray-100">
-                    <div class="h-44 relative overflow-hidden bg-gray-100 border-b border-gray-200">
-                        <img src="https://i.postimg.cc/vHvbMWw2/Huston.jpg" alt="Time Justice FTC Team" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div class="h-56 relative overflow-hidden bg-gray-100 border-b border-gray-200">
+                        <img src="https://i.postimg.cc/vHvbMWw2/Huston.jpg" alt="Time Justice FTC Team" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
                         <div class="absolute top-3 left-3 bg-[#1D1D1F] text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm">FTC</div>
                         <div class="absolute top-3 right-3 bg-[#10B981] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">2026</div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex items-center text-gray-500 text-[13px] mb-3 font-semibold">
-                            <!-- Ícone de globo -->
                             <svg class="w-4 h-4 mr-1.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             Houston, EUA
                         </div>
@@ -329,11 +284,13 @@
 
     </main>
 
+    <!-- Tooltip Customizado para o Mapa -->
+    <div id="map-tooltip" class="fixed opacity-0 pointer-events-none z-50 bg-white/95 backdrop-blur-md border border-gray-200 shadow-2xl rounded-2xl p-4 min-w-[240px] transition-opacity duration-200 transform -translate-x-1/2 -translate-y-full" style="top: 0; left: 0;"></div>
+
     <script>
         // Registrar Plugins do Chart.js
         Chart.register(ChartDataLabels);
         
-        // Configurações Globais Visuais Chart.js
         Chart.defaults.font.family = "'Inter', sans-serif";
         Chart.defaults.color = '#8E8E93';
         Chart.defaults.scale.grid.color = 'rgba(0,0,0,0.03)';
@@ -346,36 +303,49 @@
         let filteredData = [];
         let charts = {};
 
-        // Geração Rigorosa dos Dados Espelho da CNI (Exatamente 301 registros cruzados)
+        // Coordenadas para overlay de bolhas no mapa do Brasil (porcentagem top/left) devidamente calibradas
+        const stateCoords = {
+            'AC': { top: 46, left: 15 }, 'AL': { top: 43, left: 88 }, 'AM': { top: 32, left: 28 },
+            'AP': { top: 15, left: 62 }, 'BA': { top: 52, left: 79 }, 'CE': { top: 29, left: 83 },
+            'DF': { top: 56, left: 64 }, 'ES': { top: 65, left: 83 }, 'GO': { top: 57, left: 61 },
+            'MA': { top: 32, left: 70 }, 'MG': { top: 64, left: 73 }, 'MS': { top: 69, left: 50 },
+            'MT': { top: 52, left: 45 }, 'PA': { top: 30, left: 56 }, 'PB': { top: 35, left: 91 },
+            'PE': { top: 39, left: 89 }, 'PI': { top: 37, left: 74 }, 'PR': { top: 80, left: 59 },
+            'RJ': { top: 72, left: 79 }, 'RN': { top: 31, left: 91 }, 'RO': { top: 48, left: 33 },
+            'RR': { top: 15, left: 38 }, 'RS': { top: 92, left: 54 }, 'SC': { top: 86, left: 61 },
+            'SE': { top: 47, left: 87 }, 'SP': { top: 73, left: 66 }, 'TO': { top: 42, left: 63 }
+        };
+
         function generateExactData() {
-            // Arrays geradores baseados nos totais exatos da imagem referência CNI atualizada
             const createArr = (map) => Object.entries(map).flatMap(([k, v]) => Array(v).fill(k));
             
-            const pos = createArr({'1º Lugar': 199, '2º Lugar': 46, '3º Lugar': 39, '4º Lugar': 21});
-            const temp = createArr({'2020/2021': 57, '2021/2022': 22, '2023/2024': 22, '2024/2025': 104, '2025/2026': 100});
-            const torn = createArr({'First LEGO League (FLLC)': 98, 'F1 in Schools - STEAM Racing': 76, 'First Tech Challenge (FTC)': 69, 'First Robotics Competition (FRC)': 55, 'FIRST Championship (Mundial)': 4, 'Open International': 2, 'FIRST Global Innovation Awards': 1});
+            // Totais exatos baseados na referência (303 prêmios no total)
+            const pos = createArr({'1º Lugar': 199, '2º Lugar': 47, '3º Lugar': 37, '4º Lugar': 20});
+            const temp = createArr({'2020/2021': 57, '2021/2022': 22, '2023/2024': 22, '2024/2025': 104, '2025/2026': 98});
+            const torn = createArr({'First LEGO League (FLLC)': 98, 'F1 in Schools - STEAM Racing': 75, 'First Tech Challenge (FTC)': 67, 'First Robotics Competition (FRC)': 54, 'FIRST Championship (Mundial)': 5, 'Open International': 3, 'FIRST Global Innovation Awards': 1});
             
-            // Detalhando rigorosamente todos os estados. 
-            // Nota: GO ajustado para 26 no array aleatório, pois 3 registros específicos (internacionais) são inseridos manualmente abaixo. Totalizando exatamente os 29 para GO.
+            // Distribuição de estados gerada dinamicamente: 299 registros
+            // GO está com 26 dinâmicos + 4 injetados manualmente abaixo = Total cravado de 30 prêmios para Goiás.
             const est = createArr({
-                'SP': 76, 'SC': 31, 'GO': 26, 'MG': 23, 'ES': 21, 'PR': 19, 'RS': 14, 
+                'SP': 75, 'SC': 31, 'GO': 26, 'MG': 23, 'ES': 21, 'PR': 19, 'RS': 14, 
                 'BA': 13, 'MA': 12, 'PA': 12, 'DF': 9, 'RN': 8, 'RO': 7, 
                 'RJ': 6, 'CE': 5, 'AL': 4, 'AM': 3, 'MT': 3, 'MS': 3, 'TO': 2, 'PI': 2, 'PB': 1
             });
 
-            // Função para misturar de forma realista mantendo os volumes
             const shuffle = (array) => { for (let i = array.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [array[i], array[j]] = [array[j], array[i]]; } return array; };
             
             shuffle(pos); shuffle(temp); shuffle(torn); shuffle(est);
 
             const data = [];
             
-            // 1. Inserir os registros rigorosos das conquistas internacionais de Goiás (Cards)
-            data.push({ estado: 'GO', torneio: 'Open International', temporada: '2025/2026', posicao: '1º Lugar' }); // Geek Canaã
-            data.push({ estado: 'GO', torneio: 'Open International', temporada: '2025/2026', posicao: '3º Lugar' }); // Titans LJ
-            data.push({ estado: 'GO', torneio: 'FIRST Championship (Mundial)', temporada: '2025/2026', posicao: '2º Lugar' }); // Justice FTC
+            // 4 Registros rigorosos das conquistas internacionais do SESI GO 
+            // Equipe Geek Canaã ganha 2x 1º lugar (Champion + Robot Performance)
+            data.push({ estado: 'GO', torneio: 'Open International', temporada: '2025/2026', posicao: '1º Lugar' }); 
+            data.push({ estado: 'GO', torneio: 'Open International', temporada: '2025/2026', posicao: '1º Lugar' }); 
+            data.push({ estado: 'GO', torneio: 'Open International', temporada: '2025/2026', posicao: '3º Lugar' }); 
+            data.push({ estado: 'GO', torneio: 'FIRST Championship (Mundial)', temporada: '2025/2026', posicao: '2º Lugar' }); 
 
-            // 2. Gerar o restante limitando-se rigorosamente ao tamanho de distribuições de estado disponíveis
+            // Gerar o restante limitando-se rigorosamente a 299 registros aleatorizados
             const dataLength = est.length;
             for(let i=0; i<dataLength; i++) {
                 data.push({
@@ -390,7 +360,6 @@
 
         const embeddedData = generateExactData();
 
-        // Inicialização
         document.addEventListener('DOMContentLoaded', () => {
             filteredData = [...embeddedData];
             initFilters();
@@ -400,7 +369,6 @@
         function initFilters() {
             const populateSelect = (id, key) => {
                 const select = document.getElementById(id);
-                // Extrai valores únicos, ordena
                 const uniqueValues = [...new Set(embeddedData.map(item => item[key]))].sort();
                 
                 uniqueValues.forEach(val => {
@@ -415,11 +383,11 @@
             populateSelect('filter-torneio', 'torneio');
             populateSelect('filter-temporada', 'temporada');
             populateSelect('filter-estado', 'estado');
-            populateSelect('filter-posicao', 'posicao');
+            // Filtro de posição foi removido intencionalmente.
         }
 
         function resetFilters() {
-            ['filter-torneio', 'filter-temporada', 'filter-estado', 'filter-posicao'].forEach(id => {
+            ['filter-torneio', 'filter-temporada', 'filter-estado'].forEach(id => {
                 document.getElementById(id).value = 'all';
             });
             updateDashboard();
@@ -429,25 +397,22 @@
             const tTorneio = document.getElementById('filter-torneio').value;
             const tTemporada = document.getElementById('filter-temporada').value;
             const tEstado = document.getElementById('filter-estado').value;
-            const tPosicao = document.getElementById('filter-posicao').value;
 
             filteredData = embeddedData.filter(item => {
                 return (tTorneio === 'all' || item.torneio === tTorneio) &&
                        (tTemporada === 'all' || item.temporada === tTemporada) &&
-                       (tEstado === 'all' || item.estado === tEstado) &&
-                       (tPosicao === 'all' || item.posicao === tPosicao);
+                       (tEstado === 'all' || item.estado === tEstado);
             });
 
             updateKPIs();
             renderCharts();
-            updatePodium();
+            updateMap();
         }
 
         function updateKPIs() {
             const total = filteredData.length;
             const estados = new Set(filteredData.map(d => d.estado)).size;
             
-            // Melhor Temporada
             const contagemTemp = {};
             filteredData.forEach(d => { contagemTemp[d.temporada] = (contagemTemp[d.temporada] || 0) + 1; });
             let melhorTemp = 'N/A';
@@ -459,7 +424,6 @@
                 }
             }
 
-            // DR GO Status
             const goData = filteredData.filter(d => d.estado === 'GO');
             const drgoTotal = goData.length;
             const drgoPerc = total > 0 ? ((drgoTotal / total) * 100).toFixed(1) : 0;
@@ -490,21 +454,135 @@
             }, 30);
         }
 
-        function updatePodium() {
-            let p1 = 0, p2 = 0, p3 = 0, p4 = 0;
+        function updateMap() {
+            const stateStats = {};
             
+            // Consolidar contagem de estados e detalhamento de torneios no filtro atual
             filteredData.forEach(d => {
-                const pos = d.posicao;
-                if(pos === '1º Lugar') p1++;
-                else if(pos === '2º Lugar') p2++;
-                else if(pos === '3º Lugar') p3++;
-                else p4++;
+                let st = d.estado;
+                let torn = d.torneio;
+                if(st) {
+                    if (!stateStats[st]) stateStats[st] = { total: 0, torneios: {} };
+                    stateStats[st].total++;
+                    stateStats[st].torneios[torn] = (stateStats[st].torneios[torn] || 0) + 1;
+                }
             });
 
-            animateValue('podium-1-val', p1);
-            animateValue('podium-2-val', p2);
-            animateValue('podium-3-val', p3);
-            document.getElementById('podium-4-val').textContent = `Outros (4º+): ${p4}`;
+            // Calcular o Ranking Nacional logicamente (lidando com empates)
+            const sortedStates = Object.entries(stateStats).sort((a, b) => b[1].total - a[1].total);
+            let currentRank = 1;
+            let previousTotal = -1;
+            let skip = 0;
+            
+            sortedStates.forEach((item, index) => {
+                if (item[1].total === previousTotal) {
+                    stateStats[item[0]].ranking = currentRank;
+                    skip++;
+                } else {
+                    currentRank += skip;
+                    if (index === 0) currentRank = 1;
+                    stateStats[item[0]].ranking = currentRank;
+                    previousTotal = item[1].total;
+                    skip = 1;
+                }
+            });
+
+            const maxCount = sortedStates.length > 0 ? sortedStates[0][1].total : 0;
+
+            const container = document.getElementById('map-bubbles');
+            if(!container) return;
+            container.innerHTML = ''; // Limpar bolhas antigas
+
+            // Configuração do Tooltip Interativo
+            const tooltip = document.getElementById('map-tooltip');
+            
+            const showTooltip = (e, st, stats) => {
+                let torneiosHtml = '';
+                const sortedTorn = Object.entries(stats.torneios).sort((a,b) => b[1] - a[1]);
+                sortedTorn.forEach(([t, count]) => {
+                    torneiosHtml += `<div class="flex justify-between items-center text-xs mb-1.5"><span class="text-gray-500 font-medium truncate max-w-[160px]" title="${t}">${t}</span><span class="font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded-md">${count}</span></div>`;
+                });
+
+                tooltip.innerHTML = `
+                    <div class="border-b border-gray-100 pb-3 mb-3 flex justify-between items-start">
+                        <div>
+                            <span class="font-black text-gray-900 text-2xl block">${st}</span>
+                            <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">${stats.total} Prêmios Totais</span>
+                        </div>
+                        <span class="bg-[#2196F3] text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-sm">${stats.ranking}º Lugar</span>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">Composição por Torneio</p>
+                        ${torneiosHtml}
+                    </div>
+                `;
+                tooltip.style.opacity = '1';
+                moveTooltip(e);
+            };
+
+            const moveTooltip = (e) => {
+                let x = e.clientX;
+                let y = e.clientY - 20; // Levemente acima do cursor
+                
+                // Limites da tela para o tooltip não quebrar o layout
+                if (x + 120 > window.innerWidth) x = window.innerWidth - 120;
+                if (x - 120 < 0) x = 120;
+                
+                tooltip.style.left = x + 'px';
+                tooltip.style.top = y + 'px';
+            };
+
+            const hideTooltip = () => {
+                tooltip.style.opacity = '0';
+            };
+
+            // Criar novas bolhas renderizadas
+            for(let st in stateStats) {
+                if(stateCoords[st] && stateStats[st].total > 0) {
+                    const count = stateStats[st].total;
+                    const stats = stateStats[st];
+                    
+                    // Tamanho dinâmico (mínimo de 22px para garantir que o número apareça)
+                    const size = Math.max(22, (count / maxCount) * 55); 
+                    
+                    const bubble = document.createElement('div');
+                    const isGO = st === 'GO';
+                    
+                    bubble.className = 'absolute rounded-full flex items-center justify-center text-white font-bold shadow-sm transition-all duration-300 hover:scale-110 cursor-pointer hover:z-40';
+                    bubble.style.width = `${size}px`;
+                    bubble.style.height = `${size}px`;
+                    bubble.style.top = `${stateCoords[st].top}%`;
+                    bubble.style.left = `${stateCoords[st].left}%`;
+                    bubble.style.transform = `translate(-50%, -50%)`;
+                    bubble.style.fontSize = size > 30 ? '12px' : '10px';
+                    
+                    if (isGO) {
+                        bubble.style.backgroundColor = 'rgba(16, 185, 129, 0.95)';
+                        bubble.style.border = '2px solid #059669';
+                        bubble.style.zIndex = '30';
+                        bubble.classList.add('shadow-[0_0_20px_rgba(16,185,129,0.8)]');
+                    } else {
+                        bubble.style.backgroundColor = 'rgba(33, 150, 243, 0.85)';
+                        bubble.style.border = '1px solid #1976D2';
+                        bubble.style.zIndex = '20';
+                    }
+                    
+                    // Rótulos de dados forçados a sempre aparecerem
+                    bubble.innerText = count;
+                    
+                    // Eventos do Mouse
+                    bubble.addEventListener('mouseenter', (e) => showTooltip(e, st, stats));
+                    bubble.addEventListener('mousemove', moveTooltip);
+                    bubble.addEventListener('mouseleave', hideTooltip);
+                    
+                    // Eventos Mobile (Touch)
+                    bubble.addEventListener('touchstart', (e) => {
+                        showTooltip(e.touches[0], st, stats);
+                    });
+                    
+                    container.appendChild(bubble);
+                }
+            }
         }
 
         function renderCharts() {
@@ -524,16 +602,16 @@
                 return { labels: items.map(i => i[0]), data: items.map(i => i[1]) };
             };
 
-            // 1. Gráfico de Estados (Barras Horizontais com Rótulos)
+            // 1. Gráfico de Estados (Todos sem "Outros")
             const estadoData = sortDict(countBy('estado'));
             const bgColorsEstados = estadoData.labels.map(label => {
-                return (label === 'GO') ? '#10B981' : '#1E88E5'; // Verde para GO, Azul CNI para os demais
+                return (label === 'GO') ? '#10B981' : '#2196F3'; // Verde vibrante apenas GO
             });
 
             updateChart('chartEstados', 'bar', estadoData, {
                 backgroundColor: bgColorsEstados,
                 borderRadius: 4,
-                barPercentage: 0.7,
+                barPercentage: 0.8,
             }, {
                 indexAxis: 'y',
                 plugins: { 
@@ -547,16 +625,16 @@
                     }
                 },
                 scales: { 
-                    x: { beginAtZero: true, border: {display: false}, grid: {display: false}, ticks: {display: false} },
-                    y: { grid: { display: false }, border: {display: false}, ticks: {font: {weight: 'bold'}} }
+                    x: { beginAtZero: true, border: {display: false}, grid: {display: false}, ticks: {display: false}, max: Math.max(...estadoData.data) * 1.15 },
+                    y: { grid: { display: false }, border: {display: false}, ticks: {font: {weight: 'bold', size: 11}, color: '#555'} }
                 },
                 maintainAspectRatio: false
             });
 
-            // 2. Gráfico de Torneios (Barras Horizontais)
+            // 2. Gráfico de Torneios
             const torneioData = sortDict(countBy('torneio'));
             updateChart('chartTorneios', 'bar', torneioData, {
-                backgroundColor: '#1E88E5',
+                backgroundColor: '#2196F3',
                 borderRadius: 4,
                 barPercentage: 0.6,
             }, {
@@ -571,23 +649,23 @@
                     }
                 },
                 scales: { 
-                    x: { beginAtZero: true, border: {display: false}, grid: {display: false}, ticks: {display: false} },
+                    x: { beginAtZero: true, border: {display: false}, grid: {display: false}, ticks: {display: false}, max: Math.max(...torneioData.data) * 1.2 },
                     y: { grid: { display: false }, border: {display: false}, ticks: {font: {weight: '500', size: 11}} }
                 },
                 maintainAspectRatio: false
             });
 
-            // 3. Gráfico de Temporadas (Linha com Rótulos e Anotação)
+            // 3. Gráfico de Temporadas
             const temporadaRaw = countBy('temporada');
             const labelsTemp = ['2020/2021', '2021/2022', '2023/2024', '2024/2025', '2025/2026'];
             const dataTemp = labelsTemp.map(k => temporadaRaw[k] || 0);
             
             updateChart('chartTemporadas', 'line', { labels: labelsTemp, data: dataTemp }, {
-                borderColor: '#1E88E5',
-                backgroundColor: 'rgba(30, 136, 229, 0.1)',
+                borderColor: '#2196F3',
+                backgroundColor: 'rgba(33, 150, 243, 0.1)',
                 borderWidth: 3,
                 pointBackgroundColor: '#FFFFFF',
-                pointBorderColor: '#1E88E5',
+                pointBorderColor: '#2196F3',
                 pointBorderWidth: 2,
                 pointRadius: 4,
                 pointHoverRadius: 6,
@@ -597,7 +675,7 @@
                 plugins: { 
                     legend: { display: false },
                     datalabels: {
-                        color: '#333',
+                        color: '#444',
                         anchor: 'end',
                         align: 'top',
                         font: { weight: 'bold' }
@@ -608,14 +686,14 @@
                                 type: 'box',
                                 xMin: '2020/2021',
                                 xMax: '2021/2022',
-                                backgroundColor: 'rgba(230, 235, 230, 0.5)',
+                                backgroundColor: 'rgba(230, 235, 230, 0.6)',
                                 borderWidth: 0,
                                 label: {
                                     display: true,
                                     content: 'Pandemia',
                                     position: 'start',
-                                    color: '#777',
-                                    font: { size: 10, weight: 'normal' }
+                                    color: '#666',
+                                    font: { size: 11, weight: 'normal' }
                                 }
                             }
                         }
@@ -646,7 +724,7 @@
                 options: {
                     responsive: true,
                     animation: { duration: 800, easing: 'easeOutQuart' },
-                    layout: { padding: { right: 30, top: 20 } }, // Espaço para os datalabels
+                    layout: { padding: { right: 35, top: 25 } }, 
                     ...extraOptions
                 }
             });
