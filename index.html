@@ -303,17 +303,17 @@
         let filteredData = [];
         let charts = {};
 
-        // Coordenadas para overlay de bolhas calibradas milimetricamente no centro visual de cada estado
+        // Coordenadas para overlay de bolhas calibradas milimetricamente (Ajustadas para imagem de referência)
         const stateCoords = {
-            'AC': { top: 38, left: 16 }, 'AL': { top: 35, left: 87 }, 'AM': { top: 28, left: 28 },
-            'AP': { top: 11, left: 58 }, 'BA': { top: 43, left: 74 }, 'CE': { top: 23, left: 81 },
-            'DF': { top: 52, left: 62 }, 'ES': { top: 60, left: 83 }, 'GO': { top: 51, left: 57 },
-            'MA': { top: 24, left: 68 }, 'MG': { top: 59, left: 71 }, 'MS': { top: 66, left: 45 },
-            'MT': { top: 47, left: 42 }, 'PA': { top: 23, left: 52 }, 'PB': { top: 30, left: 88 },
-            'PE': { top: 33, left: 87 }, 'PI': { top: 32, left: 73 }, 'PR': { top: 76, left: 56 },
-            'RJ': { top: 68, left: 78 }, 'RN': { top: 26, left: 88 }, 'RO': { top: 43, left: 30 },
-            'RR': { top: 10, left: 34 }, 'RS': { top: 89, left: 52 }, 'SC': { top: 82, left: 58 },
-            'SE': { top: 39, left: 86 }, 'SP': { top: 69, left: 61 }, 'TO': { top: 37, left: 58 }
+            'AC': { top: 40, left: 12 }, 'AL': { top: 39, left: 87 }, 'AM': { top: 24, left: 26 },
+            'AP': { top: 11, left: 58 }, 'BA': { top: 44, left: 77 }, 'CE': { top: 25, left: 81 },
+            'DF': { top: 51, left: 63 }, 'ES': { top: 63, left: 84 }, 'GO': { top: 55, left: 59 },
+            'MA': { top: 26, left: 66 }, 'MG': { top: 61, left: 73 }, 'MS': { top: 66, left: 46 },
+            'MT': { top: 46, left: 44 }, 'PA': { top: 24, left: 50 }, 'PB': { top: 31, left: 89 },
+            'PE': { top: 35, left: 87 }, 'PI': { top: 33, left: 73 }, 'PR': { top: 79, left: 59 },
+            'RJ': { top: 71, left: 81 }, 'RN': { top: 27, left: 89 }, 'RO': { top: 43, left: 28 },
+            'RR': { top: 9, left: 32 }, 'RS': { top: 93, left: 56 }, 'SC': { top: 86, left: 61 },
+            'SE': { top: 43, left: 85 }, 'SP': { top: 70, left: 64 }, 'TO': { top: 36, left: 62 }
         };
 
         function generateExactData() {
@@ -598,21 +598,22 @@
                     const count = stateStats[st].total;
                     const stats = stateStats[st];
                     
-                    // Escala de Raiz Quadrada: Equilibra a visualização, reduzindo os extremos (ex: SP) 
-                    // para não sobrepor outros estados, enquanto mantém os estados menores visíveis.
-                    const size = Math.max(34, Math.sqrt(count / maxCount) * 82); 
+                    // Escala de Raiz Quadrada Reduzida: O multiplicador caiu de 85 para 68
+                    // Isso reduz a bolha de SP (a maior), evitando que ela sobreponha os estados vizinhos
+                    const size = Math.max(34, Math.sqrt(count / maxCount) * 68); 
                     
                     const bubble = document.createElement('div');
                     const isGO = st === 'GO';
                     
-                    bubble.className = 'absolute rounded-full flex items-center justify-center text-white font-bold shadow-sm transition-all duration-300 hover:scale-110 cursor-pointer hover:z-40';
+                    bubble.className = 'absolute rounded-full flex items-center justify-center text-white shadow-sm transition-all duration-300 hover:scale-110 cursor-pointer hover:z-40 font-extrabold';
                     bubble.style.width = `${size}px`;
                     bubble.style.height = `${size}px`;
                     bubble.style.top = `${stateCoords[st].top}%`;
                     bubble.style.left = `${stateCoords[st].left}%`;
                     bubble.style.transform = `translate(-50%, -50%)`;
-                    // Ajuste da fonte baseado no novo tamanho gerado pela raiz quadrada
-                    bubble.style.fontSize = size > 65 ? '20px' : (size > 45 ? '16px' : '14px');
+                    
+                    // Ajuste da fonte baseado no novo tamanho reduzido
+                    bubble.style.fontSize = size > 55 ? '18px' : (size > 40 ? '15px' : '13px');
                     
                     if (isGO) {
                         bubble.style.backgroundColor = 'rgba(16, 185, 129, 0.95)';
