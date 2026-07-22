@@ -303,61 +303,115 @@
         let filteredData = [];
         let charts = {};
 
-        // Coordenadas para overlay de bolhas no mapa do Brasil (porcentagem top/left) devidamente calibradas
+        // Coordenadas para overlay de bolhas calibradas milimetricamente no centro visual de cada estado
         const stateCoords = {
-            'AC': { top: 46, left: 15 }, 'AL': { top: 43, left: 88 }, 'AM': { top: 32, left: 28 },
-            'AP': { top: 15, left: 62 }, 'BA': { top: 52, left: 79 }, 'CE': { top: 29, left: 83 },
-            'DF': { top: 56, left: 64 }, 'ES': { top: 65, left: 83 }, 'GO': { top: 57, left: 61 },
-            'MA': { top: 32, left: 70 }, 'MG': { top: 64, left: 73 }, 'MS': { top: 69, left: 50 },
-            'MT': { top: 52, left: 45 }, 'PA': { top: 30, left: 56 }, 'PB': { top: 35, left: 91 },
-            'PE': { top: 39, left: 89 }, 'PI': { top: 37, left: 74 }, 'PR': { top: 80, left: 59 },
-            'RJ': { top: 72, left: 79 }, 'RN': { top: 31, left: 91 }, 'RO': { top: 48, left: 33 },
-            'RR': { top: 15, left: 38 }, 'RS': { top: 92, left: 54 }, 'SC': { top: 86, left: 61 },
-            'SE': { top: 47, left: 87 }, 'SP': { top: 73, left: 66 }, 'TO': { top: 42, left: 63 }
+            'AC': { top: 38, left: 16 }, 'AL': { top: 35, left: 87 }, 'AM': { top: 28, left: 28 },
+            'AP': { top: 11, left: 58 }, 'BA': { top: 43, left: 74 }, 'CE': { top: 23, left: 81 },
+            'DF': { top: 52, left: 62 }, 'ES': { top: 60, left: 83 }, 'GO': { top: 51, left: 57 },
+            'MA': { top: 24, left: 68 }, 'MG': { top: 59, left: 71 }, 'MS': { top: 66, left: 45 },
+            'MT': { top: 47, left: 42 }, 'PA': { top: 23, left: 52 }, 'PB': { top: 30, left: 88 },
+            'PE': { top: 33, left: 87 }, 'PI': { top: 32, left: 73 }, 'PR': { top: 76, left: 56 },
+            'RJ': { top: 68, left: 78 }, 'RN': { top: 26, left: 88 }, 'RO': { top: 43, left: 30 },
+            'RR': { top: 10, left: 34 }, 'RS': { top: 89, left: 52 }, 'SC': { top: 82, left: 58 },
+            'SE': { top: 39, left: 86 }, 'SP': { top: 69, left: 61 }, 'TO': { top: 37, left: 58 }
         };
 
         function generateExactData() {
             const createArr = (map) => Object.entries(map).flatMap(([k, v]) => Array(v).fill(k));
             
-            // Todos os arrays abaixo possuem EXATAMENTE 301 itens para pareamento perfeito.
-            // As 4 conquistas de GO já estão descontadas dos totais para garantir a matemática exata (Total = 305).
-            const posPool = createArr({'1º Lugar': 199, '2º Lugar': 46, '3º Lugar': 36, '4º Lugar': 20});
+            // 33 Prêmios exatos de Goiás 
+            const goData = [
+                // 2025/2026 (10 prêmios)
+                { estado: 'GO', torneio: 'First LEGO League (FLLC)', temporada: '2025/2026' },
+                { estado: 'GO', torneio: 'First Tech Challenge (FTC)', temporada: '2025/2026' },
+                { estado: 'GO', torneio: 'First Tech Challenge (FTC)', temporada: '2025/2026' },
+                { estado: 'GO', torneio: 'F1 in Schools - STEAM Racing', temporada: '2025/2026' },
+                { estado: 'GO', torneio: 'First Tech Challenge (FTC)', temporada: '2025/2026' },
+                { estado: 'GO', torneio: 'First LEGO League (FLLC)', temporada: '2025/2026' },
+                { estado: 'GO', torneio: 'Open International', temporada: '2025/2026' }, 
+                { estado: 'GO', torneio: 'Open International', temporada: '2025/2026' }, 
+                { estado: 'GO', torneio: 'Open International', temporada: '2025/2026' }, 
+                { estado: 'GO', torneio: 'Open International', temporada: '2025/2026' }, 
+                
+                // 2024/2025 (8 prêmios)
+                { estado: 'GO', torneio: 'First LEGO League (FLLC)', temporada: '2024/2025' },
+                { estado: 'GO', torneio: 'F1 in Schools - STEAM Racing', temporada: '2024/2025' },
+                { estado: 'GO', torneio: 'First Robotics Competition (FRC)', temporada: '2024/2025' },
+                { estado: 'GO', torneio: 'First LEGO League (FLLC)', temporada: '2024/2025' },
+                { estado: 'GO', torneio: 'F1 in Schools - STEAM Racing', temporada: '2024/2025' },
+                { estado: 'GO', torneio: 'First Robotics Competition (FRC)', temporada: '2024/2025' },
+                { estado: 'GO', torneio: 'First LEGO League (FLLC)', temporada: '2024/2025' },
+                { estado: 'GO', torneio: 'First LEGO League (FLLC)', temporada: '2024/2025' },
+                
+                // 2023/2024 (3 prêmios)
+                { estado: 'GO', torneio: 'F1 in Schools - STEAM Racing', temporada: '2023/2024' },
+                { estado: 'GO', torneio: 'F1 in Schools - STEAM Racing', temporada: '2023/2024' },
+                { estado: 'GO', torneio: 'First LEGO League (FLLC)', temporada: '2023/2024' },
+                
+                // 2022/2023 (3 prêmios)
+                { estado: 'GO', torneio: 'First LEGO League (FLLC)', temporada: '2022/2023' },
+                { estado: 'GO', torneio: 'F1 in Schools - STEAM Racing', temporada: '2022/2023' },
+                { estado: 'GO', torneio: 'First Tech Challenge (FTC)', temporada: '2022/2023' },
+                
+                // 2021/2022 (2 prêmios)
+                { estado: 'GO', torneio: 'First LEGO League (FLLC)', temporada: '2021/2022' },
+                { estado: 'GO', torneio: 'First LEGO League (FLLC)', temporada: '2021/2022' },
+                
+                // 2020/2021 (7 prêmios)
+                { estado: 'GO', torneio: 'First LEGO League (FLLC)', temporada: '2020/2021' },
+                { estado: 'GO', torneio: 'First Tech Challenge (FTC)', temporada: '2020/2021' },
+                { estado: 'GO', torneio: 'First LEGO League (FLLC)', temporada: '2020/2021' },
+                { estado: 'GO', torneio: 'First LEGO League (FLLC)', temporada: '2020/2021' },
+                { estado: 'GO', torneio: 'First Tech Challenge (FTC)', temporada: '2020/2021' },
+                { estado: 'GO', torneio: 'First Tech Challenge (FTC)', temporada: '2020/2021' },
+                { estado: 'GO', torneio: 'FIRST Championship (Mundial)', temporada: '2020/2021' }
+            ];
             
-            // Temporadas cravadas conforme os dados de análise (2025/2026 = 97 + 4 = 101, 2024/2025 = 103)
-            const tempPool = createArr({'2020/2021': 57, '2021/2022': 22, '2023/2024': 22, '2024/2025': 103, '2025/2026': 97});
+            // Total a ser gerado para bater rigorosamente os números: 285 registros dinâmicos (+ 33 fixos de GO = 318 Totais)
             
-            // Torneios (Open International descontado pois 3 de GO são inseridas manualmente)
-            const tornPool = createArr({'First LEGO League (FLLC)': 99, 'F1 in Schools - STEAM Racing': 76, 'First Tech Challenge (FTC)': 67, 'First Robotics Competition (FRC)': 54, 'FIRST Championship (Mundial)': 4, 'FIRST Global Innovation Awards': 1});
+            // Temporadas restantes
+            const tempPool = createArr({
+                '2020/2021': 50,  // + 7 GO = 57
+                '2021/2022': 20,  // + 2 GO = 22
+                '2022/2023': 11,  // + 3 GO = 14
+                '2023/2024': 19,  // + 3 GO = 22
+                '2024/2025': 96,  // + 8 GO = 104
+                '2025/2026': 89   // + 10 GO = 99
+            });
             
-            // Estados (GO tem 30 total: 26 no pool + 4 injetados; SP compensado para totalizar 301)
+            // Torneios restantes
+            const tornPool = createArr({
+                'First LEGO League (FLLC)': 90,
+                'F1 in Schools - STEAM Racing': 73,
+                'First Tech Challenge (FTC)': 62,
+                'First Robotics Competition (FRC)': 54,
+                'FIRST Championship (Mundial)': 3,
+                'Open International': 2,
+                'FIRST Global Innovation Awards': 1
+            });
+            
+            // Estados restantes 
             const estPool = createArr({
-                'SP': 77, 'SC': 31, 'GO': 26, 'MG': 23, 'ES': 21, 'PR': 19, 'RS': 14, 
+                'SP': 76, 'SC': 31, 'MG': 23, 'ES': 21, 'PR': 19, 'RS': 14, 
                 'BA': 13, 'MA': 12, 'PA': 12, 'DF': 9, 'RN': 8, 'RO': 7, 
-                'RJ': 6, 'CE': 5, 'AL': 4, 'AM': 3, 'MT': 3, 'MS': 3, 'TO': 2, 'PI': 2, 'PB': 1
+                'RJ': 7, 'CE': 6, 'AL': 5, 'AM': 4, 'MT': 4, 'MS': 4, 
+                'TO': 4, 'PI': 3, 'PB': 3
             });
 
             const shuffle = (array) => { for (let i = array.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [array[i], array[j]] = [array[j], array[i]]; } return array; };
             
-            shuffle(posPool); shuffle(tempPool); shuffle(tornPool); shuffle(estPool);
+            shuffle(tempPool); shuffle(tornPool); shuffle(estPool);
 
-            const data = [];
-            
-            // 4 Registros rigorosos das conquistas internacionais do SESI GO 
-            data.push({ estado: 'GO', torneio: 'Open International', temporada: '2025/2026', posicao: '1º Lugar' }); 
-            data.push({ estado: 'GO', torneio: 'Open International', temporada: '2025/2026', posicao: '1º Lugar' }); 
-            data.push({ estado: 'GO', torneio: 'Open International', temporada: '2025/2026', posicao: '3º Lugar' }); 
-            data.push({ estado: 'GO', torneio: 'FIRST Championship (Mundial)', temporada: '2025/2026', posicao: '2º Lugar' }); 
-
-            // Gerar os restantes 301 registros perfeitamente pareados (totalizando 305 cravados no sistema)
-            for(let i=0; i<301; i++) {
-                data.push({
+            const otherData = [];
+            for(let i=0; i<285; i++) {
+                otherData.push({
                     estado: estPool[i],
                     torneio: tornPool[i],
-                    temporada: tempPool[i],
-                    posicao: posPool[i]
+                    temporada: tempPool[i]
                 });
             }
-            return data;
+
+            return [...goData, ...otherData];
         }
 
         const embeddedData = generateExactData();
@@ -544,8 +598,9 @@
                     const count = stateStats[st].total;
                     const stats = stateStats[st];
                     
-                    // Tamanho dinâmico (mínimo de 22px para garantir que o número apareça)
-                    const size = Math.max(22, (count / maxCount) * 55); 
+                    // Escala de Raiz Quadrada: Equilibra a visualização, reduzindo os extremos (ex: SP) 
+                    // para não sobrepor outros estados, enquanto mantém os estados menores visíveis.
+                    const size = Math.max(34, Math.sqrt(count / maxCount) * 82); 
                     
                     const bubble = document.createElement('div');
                     const isGO = st === 'GO';
@@ -556,7 +611,8 @@
                     bubble.style.top = `${stateCoords[st].top}%`;
                     bubble.style.left = `${stateCoords[st].left}%`;
                     bubble.style.transform = `translate(-50%, -50%)`;
-                    bubble.style.fontSize = size > 30 ? '12px' : '10px';
+                    // Ajuste da fonte baseado no novo tamanho gerado pela raiz quadrada
+                    bubble.style.fontSize = size > 65 ? '20px' : (size > 45 ? '16px' : '14px');
                     
                     if (isGO) {
                         bubble.style.backgroundColor = 'rgba(16, 185, 129, 0.95)';
@@ -619,16 +675,16 @@
                 plugins: { 
                     legend: { display: false },
                     datalabels: {
-                        color: '#666',
+                        color: '#444',
                         anchor: 'end',
                         align: 'right',
-                        font: { weight: 'bold', size: 11 },
+                        font: { weight: 'bold', size: 14 },
                         formatter: Math.round
                     }
                 },
                 scales: { 
                     x: { beginAtZero: true, border: {display: false}, grid: {display: false}, ticks: {display: false}, max: Math.max(...estadoData.data) * 1.15 },
-                    y: { grid: { display: false }, border: {display: false}, ticks: {font: {weight: 'bold', size: 11}, color: '#555'} }
+                    y: { grid: { display: false }, border: {display: false}, ticks: {font: {weight: 'bold', size: 13}, color: '#333'} }
                 },
                 maintainAspectRatio: false
             });
@@ -644,28 +700,28 @@
                 plugins: { 
                     legend: { display: false },
                     datalabels: {
-                        color: '#666',
+                        color: '#444',
                         anchor: 'end',
                         align: 'right',
-                        font: { weight: 'bold', size: 11 }
+                        font: { weight: 'bold', size: 14 }
                     }
                 },
                 scales: { 
                     x: { beginAtZero: true, border: {display: false}, grid: {display: false}, ticks: {display: false}, max: Math.max(...torneioData.data) * 1.2 },
-                    y: { grid: { display: false }, border: {display: false}, ticks: {font: {weight: '500', size: 11}} }
+                    y: { grid: { display: false }, border: {display: false}, ticks: {font: {weight: 'bold', size: 14}, color: '#333'} }
                 },
                 maintainAspectRatio: false
             });
 
             // 3. Gráfico de Temporadas
             const temporadaRaw = countBy('temporada');
-            const labelsTemp = ['2020/2021', '2021/2022', '2023/2024', '2024/2025', '2025/2026'];
+            const labelsTemp = ['2020/2021', '2021/2022', '2022/2023', '2023/2024', '2024/2025', '2025/2026'];
             const dataTemp = labelsTemp.map(k => temporadaRaw[k] || 0);
             
             updateChart('chartTemporadas', 'line', { labels: labelsTemp, data: dataTemp }, {
                 borderColor: '#2196F3',
                 backgroundColor: 'rgba(33, 150, 243, 0.1)',
-                borderWidth: 3,
+                borderWidth: 4,
                 pointBackgroundColor: '#FFFFFF',
                 pointBorderColor: '#2196F3',
                 pointBorderWidth: 2,
@@ -677,10 +733,10 @@
                 plugins: { 
                     legend: { display: false },
                     datalabels: {
-                        color: '#444',
+                        color: '#333',
                         anchor: 'end',
                         align: 'top',
-                        font: { weight: 'bold' }
+                        font: { weight: 'bold', size: 14 }
                     },
                     annotation: {
                         annotations: {
@@ -702,8 +758,8 @@
                     }
                 },
                 scales: { 
-                    y: { beginAtZero: true, border: {display: false}, grid: {color: '#f0f0f0'}, max: Math.max(...dataTemp) * 1.3 },
-                    x: { grid: { display: false }, border: {display: false} }
+                    y: { beginAtZero: true, border: {display: false}, grid: {color: '#f0f0f0'}, max: Math.max(...dataTemp) * 1.3, ticks: {font: {size: 13}} },
+                    x: { grid: { display: false }, border: {display: false}, ticks: {font: {weight: '600', size: 13}, color: '#333'} }
                 },
                 maintainAspectRatio: false
             });
