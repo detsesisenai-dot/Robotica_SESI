@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -201,7 +201,7 @@
                         0 registros encontrados
                     </div>
                 </div>
-                <div class="overflow-x-auto">
+                <div class="overflow-auto max-h-[480px]">
                     <table class="w-full text-left border-collapse apple-table whitespace-nowrap min-w-[800px]">
                         <thead>
                             <tr>
@@ -700,6 +700,17 @@
                         showTooltip(e.touches[0], st, stats);
                     });
                     
+                    // Adicionando a interatividade de filtro no clique da bolha
+                    bubble.addEventListener('click', () => {
+                        const selectEstado = document.getElementById('filter-estado');
+                        if (selectEstado.value === st) {
+                            selectEstado.value = 'all'; // Remove o filtro se já estiver selecionado
+                        } else {
+                            selectEstado.value = st; // Aplica o filtro
+                        }
+                        updateDashboard();
+                    });
+                    
                     container.appendChild(bubble);
                 }
             }
@@ -832,6 +843,29 @@
             const ctx = document.getElementById(canvasId).getContext('2d');
             if(charts[canvasId]) charts[canvasId].destroy();
 
+            // Handler para clique nos gráficos
+            const onClickHandler = (e, elements, chart) => {
+                if (elements.length > 0) {
+                    const index = elements[0].index;
+                    const label = chart.data.labels[index];
+                    
+                    let filterId = '';
+                    if (canvasId === 'chartEstados') filterId = 'filter-estado';
+                    else if (canvasId === 'chartTorneios') filterId = 'filter-torneio';
+                    else if (canvasId === 'chartTemporadas') filterId = 'filter-temporada';
+                    
+                    if (filterId) {
+                        const selectElement = document.getElementById(filterId);
+                        if (selectElement.value === label) {
+                            selectElement.value = 'all'; // Alterna (desliga) se já estiver selecionado
+                        } else {
+                            selectElement.value = label; // Seleciona o novo
+                        }
+                        updateDashboard();
+                    }
+                }
+            };
+
             charts[canvasId] = new Chart(ctx, {
                 type: type,
                 data: {
@@ -846,6 +880,11 @@
                     responsive: true,
                     animation: { duration: 800, easing: 'easeOutQuart' },
                     layout: { padding: { right: 35, top: 25 } }, 
+                    onClick: onClickHandler,
+                    onHover: (event, chartElement) => {
+                        // Muda o cursor para "mãozinha" ao passar sobre barras/pontos clicáveis
+                        event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+                    },
                     ...extraOptions
                 }
             });
